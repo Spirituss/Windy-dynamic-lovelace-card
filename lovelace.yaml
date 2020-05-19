@@ -1,0 +1,96 @@
+name: Windy dynamic lovelace card
+resources:
+  - url: /community_plugin/config-template-card/config-template-card.js
+    type: module
+  - url: /community_plugin/button-card/button-card.js
+    type: module
+  - url: /community_plugin/stack-in-card/stack-in-card.js
+    type: module
+    
+views: 
+- title: Карта погоды
+  cards:
+    - type: custom:stack-in-card
+      mode: vertical
+      cards:
+        - type: horizontal-stack
+          show_name: false
+          cards:   
+            - name: Ветер
+              icon: mdi:weather-windy
+              type: custom:button-card
+              template: sensor
+              tap_action:
+                action: call-service
+                service: input_select.select_option
+                service_data:
+                  entity_id: input_select.windy_overlay
+                  option: gust
+            - name: Темп-ра
+              icon: mdi:thermometer-lines
+              type: custom:button-card
+              template: sensor
+              tap_action:
+                action: call-service
+                service: input_select.select_option
+                service_data:
+                  entity_id: input_select.windy_overlay
+                  option: temp
+            - name: PM2.5
+              icon: mdi:chart-scatter-plot
+              type: custom:button-card
+              template: sensor
+              tap_action:
+                action: call-service
+                service: input_select.select_option
+                service_data:
+                  entity_id: input_select.windy_overlay
+                  option: dustsm     
+            - name: Влажн.
+              icon: mdi:water-percent
+              type: custom:button-card
+              template: sensor
+              tap_action:
+                action: call-service
+                service: input_select.select_option
+                service_data:
+                  entity_id: input_select.windy_overlay
+                  option: rh     
+            - name: Снег
+              icon: mdi:snowflake
+              type: custom:button-card
+              template: sensor
+              tap_action:
+                action: call-service
+                service: input_select.select_option
+                service_data:
+                  entity_id: input_select.windy_overlay
+                  option: snowAccu
+            - name: Облака
+              icon: mdi:weather-cloudy-arrow-right
+              type: custom:button-card
+              template: sensor
+              tap_action:
+                action: call-service
+                service: input_select.select_option
+                service_data:
+                  entity_id: input_select.windy_overlay
+                  option: hclouds
+            - name: Предупр.
+              icon: mdi:cloud-alert
+              type: custom:button-card
+              template: sensor
+              tap_action:
+                action: call-service
+                service: input_select.select_option
+                service_data:
+                  entity_id: input_select.windy_overlay
+                  option: capAlerts                                
+        - type: 'custom:config-template-card'
+          entities:
+            - person.spirituss
+            - input_select.windy_overlay
+          card:
+            type: 'custom:hui-iframe-card'
+            url: ${'https://embed.windy.com/embed2.html?lat='+states['person.spirituss'].attributes.latitude+'&lon='+states['person.spirituss'].attributes.longitude+'&zoom=10&level=surface&overlay='+states['input_select.windy_overlay'].state+'&menu=&message=true&marker=&calendar=&pressure=&type=map&location=coordinates&detail=&detailLat='+states['person.spirituss'].attributes.latitude+'&detailLon='+states['person.spirituss'].attributes.longitude+'&metricWind=km%2Fh&metricTemp=%C2%B0C&radarRange=-1'}
+            aspect_ratio: 60%  
