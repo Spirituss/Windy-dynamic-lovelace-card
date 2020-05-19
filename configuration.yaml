@@ -1,0 +1,16 @@
+#########################################################################################
+input_select:
+  windy_overlay:
+    name: Режим Windy
+    options:
+      - "gust"
+      - "temp"
+      - "snowAccu"
+      - "hclouds"
+      - "so2sm"
+      - "dustsm"
+      - "capAlerts"
+      - "clouds"
+      - "rh"
+    icon: mdi:umbrella-closed-variant
+#########################################################################################    
