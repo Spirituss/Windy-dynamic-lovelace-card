@@ -19,7 +19,6 @@ views:
             - name: Ветер
               icon: mdi:weather-windy
               type: custom:button-card
-              template: sensor
               tap_action:
                 action: call-service
                 service: input_select.select_option
@@ -29,7 +28,6 @@ views:
             - name: Темп-ра
               icon: mdi:thermometer-lines
               type: custom:button-card
-              template: sensor
               tap_action:
                 action: call-service
                 service: input_select.select_option
@@ -39,7 +37,6 @@ views:
             - name: PM2.5
               icon: mdi:chart-scatter-plot
               type: custom:button-card
-              template: sensor
               tap_action:
                 action: call-service
                 service: input_select.select_option
@@ -49,7 +46,6 @@ views:
             - name: Влажн.
               icon: mdi:water-percent
               type: custom:button-card
-              template: sensor
               tap_action:
                 action: call-service
                 service: input_select.select_option
@@ -59,7 +55,6 @@ views:
             - name: Снег
               icon: mdi:snowflake
               type: custom:button-card
-              template: sensor
               tap_action:
                 action: call-service
                 service: input_select.select_option
@@ -69,7 +64,6 @@ views:
             - name: Облака
               icon: mdi:weather-cloudy-arrow-right
               type: custom:button-card
-              template: sensor
               tap_action:
                 action: call-service
                 service: input_select.select_option
@@ -79,7 +73,6 @@ views:
             - name: Предупр.
               icon: mdi:cloud-alert
               type: custom:button-card
-              template: sensor
               tap_action:
                 action: call-service
                 service: input_select.select_option
