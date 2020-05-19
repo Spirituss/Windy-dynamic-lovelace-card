@@ -6,7 +6,7 @@ resources:
     type: module
   - url: /community_plugin/stack-in-card/stack-in-card.js
     type: module
-    
+#########################################################################################    
 views: 
 - title: Карта погоды
   cards:
@@ -94,3 +94,4 @@ views:
             type: 'custom:hui-iframe-card'
             url: ${'https://embed.windy.com/embed2.html?lat='+states['person.spirituss'].attributes.latitude+'&lon='+states['person.spirituss'].attributes.longitude+'&zoom=10&level=surface&overlay='+states['input_select.windy_overlay'].state+'&menu=&message=true&marker=&calendar=&pressure=&type=map&location=coordinates&detail=&detailLat='+states['person.spirituss'].attributes.latitude+'&detailLon='+states['person.spirituss'].attributes.longitude+'&metricWind=km%2Fh&metricTemp=%C2%B0C&radarRange=-1'}
             aspect_ratio: 60%  
+#########################################################################################            
